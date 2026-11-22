@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALL-CLIP AI STUDIO</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">✦ ALL-CLIP <span>AI STUDIO</span></div>
+    <p class="side-label">WORKSPACE</p>
+    <button class="nav active">▣ Editor Studio</button>
+    <button class="nav" id="newProject">＋ Project Baru</button>
+    <p class="side-label">AI TOOLS</p>
+    <button class="nav" data-tool="analyze">✧ AI Auto Edit</button>
+    <button class="nav" data-tool="highlight">◈ AI Highlight</button>
+    <button class="nav" data-tool="subtitle">▤ Auto Subtitle</button>
+    <button class="nav" data-tool="voice">◉ AI Voice</button>
+    <button class="nav" data-tool="music">♫ AI Music</button>
+    <div class="sidebar-bottom">ALL-CLIP STUDIO<br><small>Creative tools for everyone</small></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h2>Video Workspace</h2>
+        <p>Ubah ide menjadi video yang menarik.</p>
+      </div>
+      <div class="top-right">
+        <span class="online">● AI SYSTEM ONLINE</span>
+        <button class="primary" id="exportBtn">Export Video ↗</button>
+      </div>
+    </header>
+
+    <section class="welcome">
+      <div>
+        <span class="eyebrow">AI POWERED VIDEO EDITOR</span>
+        <h1>CREATE. EDIT. <span>INSPIRE.</span></h1>
+        <p>Studio editing video manual dan AI dalam satu tempat.</p>
+      </div>
+      <div class="orb">✦</div>
+    </section>
+
+    <section class="workspace">
+      <div class="panel preview-panel">
+        <div class="panel-head">
+          <h3>Preview Monitor</h3>
+          <span id="videoStatus">No video loaded</span>
+        </div>
+
+        <label class="upload-area" id="dropArea">
+          <input type="file" id="videoInput" accept="video/*" hidden>
+          <div class="upload-icon">↑</div>
+          <h3>Upload video kamu</h3>
+          <p>MP4, MOV, WEBM — pilih file dari perangkat</p>
+          <span class="upload-button">Pilih Video</span>
+        </label>
+
+        <video id="preview" controls playsinline></video>
+        <div class="preview-tools">
+          <span id="duration">Durasi: --</span>
+          <span>Preview Player</span>
+        </div>
+      </div>
+
+      <div class="panel ai-panel">
+        <div class="panel-head">
+          <h3>✦ AI Assistant</h3>
+          <span class="tag">SMART MODE</span>
+        </div>
+
+        <label>Deskripsikan video</label>
+        <textarea id="description" placeholder="Contoh: Buat video promosi yang dinamis dan menarik..."></textarea>
+
+        <button class="primary full" id="analyzeBtn">✧ Jalankan AI Auto Edit</button>
+
+        <div class="tool-grid">
+          <button class="tool" data-tool="highlight">◈<span>AI Highlight</span></button>
+          <button class="tool" data-tool="subtitle">▤<span>Auto Subtitle</span></button>
+          <button class="tool" data-tool="voice">◉<span>AI Voice</span></button>
+          <button class="tool" data-tool="music">♫<span>AI Music</span></button>
+        </div>
+
+        <div id="aiResult" class="result">
+          <p>Hasil analisis AI akan muncul di sini.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel timeline-panel">
+      <div class="panel-head">
+        <h3>Manual Timeline Editor</h3>
+        <span class="tag">BASIC EDITOR</span>
+      </div>
+
+      <div class="timeline-controls">
+        <div>
+          <label>Waktu mulai (detik)</label>
+          <input type="number" id="startTime" min="0" value="0">
+        </div>
+        <div>
+          <label>Waktu selesai (detik)</label>
+          <input type="number" id="endTime" min="1" value="10">
+        </div>
+        <button id="addSegment" class="secondary">＋ Tambah Segmen</button>
+      </div>
+
+      <div id="segments" class="segments">
+        <p class="empty">Belum ada segmen. Tambahkan bagian video yang ingin digunakan.</p>
+      </div>
+
+      <div class="export-row">
+        <div>
+          <label>Kualitas export</label>
+          <select id="quality">
+            <option value="1080p">Full HD — 1080p</option>
+            <option value="720p">HD — 720p</option>
+          </select>
+        </div>
+        <button class="primary" id="renderBtn">Render Video ✦</button>
+      </div>
+    </section>
+
+    <section class="panel voice-panel">
+      <div class="panel-head"><h3>AI Voice Generator</h3></div>
+      <textarea id="voiceText" placeholder="Masukkan teks narasi di sini..."></textarea>
+      <button id="voiceBtn" class="secondary">Buat Suara AI</button>
+      <audio id="voiceAudio" controls></audio>
+    </section>
+
+    <footer>© 2026 ALL-CLIP AI STUDIO · Built for creators</footer>
+  </main>
+
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
